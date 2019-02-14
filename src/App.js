@@ -1,28 +1,43 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import PlayersList from './components/PlayersList/PlayersList';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+	constructor() {
+		super();
+
+		this.state = {
+			players: [
+				{
+					name: 'Kunegunda',
+					score: 5,
+				},
+				{
+					name: 'Antoś',
+					score: 0,
+				}
+			]
+		}
+	}
+
+	onScoreUpdate = (playerIndex, scoreChange) => {
+		this.setState({
+			players: this.state.players.map((player, index) => {
+				if (index === playerIndex) {
+					return { ...player, score: player.score + scoreChange };
+				}
+				return player;
+			})
+		})
+	}
+
+	render() {
+		return (
+			<div className="App">
+				<PlayersList players={this.state.players} onScoreUpdate={this.onScoreUpdate} />
+			</div>
+		);
+	}
 }
 
 export default App;
