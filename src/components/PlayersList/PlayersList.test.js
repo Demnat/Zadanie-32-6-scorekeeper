@@ -39,7 +39,7 @@ it('should call onScoreUpdate on first player', () => {
 	]
 	const mockedOnScoreUpdate = jest.fn();
 	const playerComponent = shallow(<PlayersList players={players} onScoreUpdate={mockedOnScoreUpdate} />);
-	
+
 	const firstPlayer = playerComponent.find(Player).first();
 	const onPlayerScoreChange = firstPlayer.prop('onPlayerScoreChange');
 	onPlayerScoreChange(10);
@@ -48,6 +48,7 @@ it('should call onScoreUpdate on first player', () => {
 });
 
 it('should call onScoreUpdate on second player', () => {
+	
 	const players = [
 		{
 			name: 'Kunegunda',
@@ -59,11 +60,39 @@ it('should call onScoreUpdate on second player', () => {
 		}
 	]
 	const mockedOnScoreUpdate = jest.fn();
-	const playerComponent = shallow(<PlayersList players={players} onScoreUpdate={mockedOnScoreUpdate} />);
-	
+	const playerComponent = shallow(<PlayersList players={players}
+		onScoreUpdate={mockedOnScoreUpdate} />);
+
 	const secondPlayer = playerComponent.find(Player).last();
 	const onPlayerScoreChange = secondPlayer.prop('onPlayerScoreChange');
 	onPlayerScoreChange(-1);
 
 	expect(mockedOnScoreUpdate).toBeCalledWith(1, -1);
+
 });
+
+// it('should remove player', () => {
+	
+// 	const players = [
+// 		{
+// 			name: 'Kunegunda',
+// 			score: 5
+// 		},
+// 		{
+// 			name: 'Antoś',
+// 			score: 0
+// 		}
+// 	]
+// 	const mockedOnScoreUpdate = jest.fn();
+// 	const mockedOnPlayerRemove = jest.fn();
+// 	const playerComponent = shallow(<PlayersList players={players}
+// 		onScoreUpdate={mockedOnScoreUpdate}
+// 		onPlayerRemove={mockedOnPlayerRemove} />);
+
+// 	const firstPlayer = playerComponent.find(Player).first();
+// 	const onPlayerRemove = firstPlayer.prop('onPlayerRemove');
+// 	onPlayerRemove(0);
+
+// 	expect(mockedOnPlayerRemove).toBeCalledWith(0);
+
+// });
