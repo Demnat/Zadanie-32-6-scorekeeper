@@ -49,8 +49,7 @@ it('should call onPlayerScoreChange with -1 when minus button is clicked', () =>
 
 it('should call onPlayerRemove when Remove button is clicked', () => {
     const mockedOnPlayerRemove = jest.fn();
-    const playerComponent = shallow(<Player key={1} onPlayerRemove={mockedOnPlayerRemove}
-    />);
+    const playerComponent = shallow(<Player id={1} onPlayerRemove={mockedOnPlayerRemove}/>);
 
     const removeButton = playerComponent.find('.Player__button').last();
 

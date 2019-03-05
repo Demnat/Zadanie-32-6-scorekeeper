@@ -71,28 +71,27 @@ it('should call onScoreUpdate on second player', () => {
 
 });
 
-// it('should remove player', () => {
+it('should call  onPlayerRemove on first player', () => {
 	
-// 	const players = [
-// 		{
-// 			name: 'Kunegunda',
-// 			score: 5
-// 		},
-// 		{
-// 			name: 'Antoś',
-// 			score: 0
-// 		}
-// 	]
-// 	const mockedOnScoreUpdate = jest.fn();
-// 	const mockedOnPlayerRemove = jest.fn();
-// 	const playerComponent = shallow(<PlayersList players={players}
-// 		onScoreUpdate={mockedOnScoreUpdate}
-// 		onPlayerRemove={mockedOnPlayerRemove} />);
+	const players = [
+		{
+			name: 'Kunegunda',
+			score: 5
+		},
+		{
+			name: 'Antoś',
+			score: 0
+		}
+	]
+	
+	const mockedOnPlayerRemove = jest.fn();
+	const playerListComponent = shallow(<PlayersList players={players}
+		onPlayerRemove={mockedOnPlayerRemove} />);
 
-// 	const firstPlayer = playerComponent.find(Player).first();
-// 	const onPlayerRemove = firstPlayer.prop('onPlayerRemove');
-// 	onPlayerRemove(0);
+	const firstPlayer = playerListComponent.find(Player).first();
+	const onPlayerRemove = firstPlayer.prop('onPlayerRemove');
+	onPlayerRemove(0);
 
-// 	expect(mockedOnPlayerRemove).toBeCalledWith(0);
+	expect(mockedOnPlayerRemove).toBeCalledWith(0);
 
-// });
+});
