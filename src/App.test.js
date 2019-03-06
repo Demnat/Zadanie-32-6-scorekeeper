@@ -36,13 +36,13 @@ it('should add player to players state', () => {
 	const appComponent = shallow(<App />);
 	const players = [];
 	appComponent.setState({ players });
-	console.log(players);
+	// console.log(players);
 
 	const onPlayerAdd = appComponent.find(AddPlayer).prop('onPlayerAdd');
 	onPlayerAdd('Ania');
 
 	const actualPlayers = appComponent.state('players');
-	console.log(actualPlayers);
+	// console.log(actualPlayers);
 
 	expect(actualPlayers.length).toEqual(1);
 	expect(actualPlayers[0].name).toEqual('Ania');
@@ -65,11 +65,10 @@ it('should remove player from players state', () => {
 	console.log(players);
 
 	const onPlayerRemove = appComponent.find('#playersList').prop('onPlayerRemove');
-	onPlayerRemove(1);
+	onPlayerRemove(0);
+	const playersAfterUpdate = appComponent.state('players');
+	console.log(playersAfterUpdate);
 
-	const actualPlayers = appComponent.state('players');
-	console.log(actualPlayers);
-
-	expect(actualPlayers.length).toEqual(1);
+	expect(playersAfterUpdate.length).toEqual(1);
 
 });

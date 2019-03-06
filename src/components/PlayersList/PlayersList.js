@@ -3,7 +3,7 @@ import Player from '../Player/Player';
 import './PlayersList.css';
 
 const PlayersList = (props) => (
-   <ul className="PlayersList">
+   <ol className="PlayersList">
        {props.players.map((player, i) => (
            <Player
                key={i}
@@ -14,7 +14,7 @@ const PlayersList = (props) => (
                onPlayerRemove={() => props.onPlayerRemove(i)}
            />)
        )}
-   </ul>
+   </ol>
 );
 
 export default PlayersList;

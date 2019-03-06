@@ -1,0 +1,23 @@
+.AddPlayer {
+    padding: 20px;
+    
+}
+
+.AddPlayer__input {
+    margin: 0 20px;
+    padding: 10px;
+    border: 2px solid #116600;
+    font: 16px/20px Verdana;
+    background-color: #afff9e;
+    color: #116600;
+}
+
+.AddPlayer__submit {
+    padding: 10px 20px;
+    background-color: #116600;
+    border: none;
+    font: 16px/20px Verdana;
+    color: #afff9e;
+}
+
+/* #509640 */
